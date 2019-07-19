@@ -19,44 +19,64 @@
     <title>Food 4 Thought</title>
   </head>
   <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="jumbotron">
-          <h1 class="display-4" style="text-align:center">Food 4 Thought</h1>
-          <p class="lead">
-            This is a simple website designed to help you create inspired recipes
-            using just the ingredients already in your pantry.<br>You may also browse
-            our selection of the top meal ideas for each category.
-          </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="jumbotron">
+            <h1 class="display-4" style="text-align:center">Food 4 Thought</h1>
+            <p class="lead">
+              This is a simple website designed to help you create inspired
+              recipes using just the ingredients already in your pantry.<br />You
+              may also browse our selection of the top meal ideas for each
+              category.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row" id="categories">
+      <!-- Three categories linking down to category overview lower down the page -->
+      <div class="row" id="categories">
         <div class="col-lg-4" id="americanMain" style="text-align:center">
           <p>AMERICAN</p>
-          <i style="width:150px;height:150px;display:inline-block;background-color:gray"></i>
+          <i
+            style="width:300px;height:300px;display:inline-block;background-color:gray"
+          ></i>
         </div>
         <div class="col-lg-4" id="italianMain" style="text-align:center">
           <p>ITALIAN</p>
-          <i style="width:150px;height:150px;display:inline-block;background-color:gray"></i>
+          <i
+            style="width:300px;height:300px;display:inline-block;background-color:gray"
+          ></i>
         </div>
         <div class="col-lg-4" id="asianMain" style="text-align:center">
           <p>ASIAN</p>
-          <i style="width:150px;height:150px;display:inline-block;background-color:gray"></i>
+          <i
+            style="width:300px;height:300px;display:inline-block;background-color:gray"
+          ></i>
         </div>
       </div>
-      <br>
-    <h4 style="text-align: center">What's In Your Fridge?</h4>
-      <div class="container" id="inputForm" style="text-align: center">
+      <br />
+      <h4 style="text-align: center">What's In Your Fridge?</h4>
+      <div class="container" id="inputForm" style="align-content: center">
         <form>
-          <div class="form-group col-lg-10" style="display: inline-block">
-              <label for="ingredientsInput">Enter Ingredients <small>(separated by commas)</small></label>
-              <textarea class="form-control" id="ingredientsInput" rows="3"></textarea>
+          <div class="form-group col-lg-12" style="display: inline-block">
+            <label for="ingredientsInput"
+              >Enter Ingredients <small>(separated by commas)</small></label
+            >
+            <textarea
+              class="form-control"
+              id="ingredientsInput"
+              rows="6"
+            ></textarea>
           </div>
+          <div class="input-group-append">
+              <button class="btn btn-outline-secondary" style=display:block;margin-left:auto;margin-right:15px type="button" id="submitButton">Submit</button>
+        </div>
         </form>
       </div>
-
+      <br>
+      <!-- Display Recipes from JS -->
+      <div style="text-align:center" class="row" id="box"></div>
+      
   </div>
     <script src="assets/logic.js"></script>
     <script src="tilt.jquery.js"></script>
