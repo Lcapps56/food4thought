@@ -1,21 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-    <title>Food $ Thought</title>
-</head>
-<body>
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <title>Food 4 Thought</title>
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="jumbotron">
+          <h1 class="display-4" style="text-align:center">Food 4 Thought</h1>
+          <p class="lead">
+            This is a simple website designed to help you create inspired recipes
+            using just the ingredients already in your pantry.<br>You may also browse
+            our selection of the top meal ideas for each category.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="categories">
+        <div class="col-lg-4" id="americanMain" style="text-align:center">
+          <p>AMERICAN</p>
+          <i style="width:150px;height:150px;display:inline-block;background-color:gray"></i>
+        </div>
+        <div class="col-lg-4" id="italianMain" style="text-align:center">
+          <p>ITALIAN</p>
+          <i style="width:150px;height:150px;display:inline-block;background-color:gray"></i>
+        </div>
+        <div class="col-lg-4" id="asianMain" style="text-align:center">
+          <p>ASIAN</p>
+          <i style="width:150px;height:150px;display:inline-block;background-color:gray"></i>
+        </div>
+      </div>
+      <br>
+    <h4 style="text-align: center">What's In Your Fridge?</h4>
+      <div class="container" id="inputForm" style="text-align: center">
+        <form>
+          <div class="form-group col-lg-10" style="display: inline-block">
+              <label for="ingredientsInput">Enter Ingredients <small>(separated by commas)</small></label>
+              <textarea class="form-control" id="ingredientsInput" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
 
-    <script src="assets/logic.js"></script>    
+  </div>
+    <script src="assets/logic.js"></script>
     <script src="tilt.jquery.js"></script>
-</body>
+  </body>
 </html>
