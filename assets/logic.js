@@ -1,6 +1,7 @@
 
 $("#submitButton").on("click", function(event){
   event.preventDefault();
+    $("#box").empty;
   var ingredient = $("#ingredientsInput").val();
 
 
@@ -40,14 +41,20 @@ console.log(queryUrl);
       console.log(response.hits[i].recipe.label);
       var label = response.hits[i].recipe.label;
       console.log(response.hits[i].recipe.url);
-      var url = $("<a href=" + response.hits[i].recipe.url + "> Click Here to View</a>");
+      var url = $("<a href=" + response.hits[i].recipe.url + "></a>");
+      url.text("Click Here to View")
       console.log(response.hits[i].recipe.image);
-      var image = $("<img src=" + response.hits[i].recipe.image + ">");
+      var image = $("<img style='width:100%' src=" + response.hits[i].recipe.image + ">");
 
-      var newDiv = $("<div class=col-lg-4 style=display:inline-block id=recipe></div>")
-            
+      var newDiv = $("<div class=col-lg-4 style=display:inline-block id=recipe></div>");
+
+    //   API #2 / List button
+      var newButton = $("<button id=listButton>+</button>")
+
+
+      
       newDiv.text(label)
-      newDiv.append(image, url)
+      newDiv.append(image, url, newButton)
       newDiv.css({
           "padding": "20px",
           "border": "solid black 1px",
@@ -55,8 +62,12 @@ console.log(queryUrl);
         //   "margin": "20px 20px",
           "text-align": "center", 
           "box-shadow": "10px 10px 5px grey",
-        //   "width": "300px",
-
+    
+        })  
+        newButton.css({
+          "position": "absolute",
+          "bottom": "0px",
+          "right": "0px"
       })
       $("#box").append(newDiv)
 
