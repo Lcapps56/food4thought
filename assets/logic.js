@@ -1,4 +1,5 @@
 //when the submit button gets clicked
+var dataResponse = []
 $("#submitButton").on("click", function(event){
   event.preventDefault();
   //gather what was put in the textbox and save into the ingredients variable
@@ -18,7 +19,7 @@ console.log(queryUrl);
   }).then(function(response){
     //empty whatever was in the results box from before 
     $("#box").empty();
-
+    dataResponse = []
     //for each item in the response
     for (var i = 0; i < response.hits.length; i++) {
       //grab the name of the recipe and save it into the "label" variable
@@ -33,7 +34,16 @@ console.log(queryUrl);
       var newDiv = $("<div class=col-lg-4 style=display:inline-block id=recipe></div>");
 
     //   API #2 / List button
-      var newButton = $("<button id=listButton>+</button>")
+      var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal('+i+')" id=listButton">+</button>')
+      
+
+        var recipe = {
+          Fat: response.hits[i].recipe.digest[0].total,
+          Carbs: response.hits[i].recipe.digest[1].total,
+          Protein:  response.hits[i].recipe.digest[2].total
+        }
+        
+        dataResponse.push(recipe)
 
       // the label, image, url, and new button put in this new div
       newDiv.text(label)
@@ -53,6 +63,40 @@ console.log(queryUrl);
 
       //but the new div into the results box on the page
       $("#box").append(newDiv)
-    }     
+      
+    }   
+    console.log(dataResponse)  
   });  
 });
+
+
+
+      function showModal (position){
+
+        
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        var currentData = dataResponse[position]
+        function drawChart() {
+
+          var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            // ['Work',     response.hit[i].whatever],
+            ['Fat', currentData.Fat],
+            ['Carbs',  currentData.Carbs],
+            ['protein', currentData.Protein],
+          ]);
+          console.log(data)
+          var options = {
+            title: 'My Daily Activities'
+          };
+
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+          chart.draw(data, options);
+        }
+        $('#nutritionModal').modal('show')
+
+
+      }
