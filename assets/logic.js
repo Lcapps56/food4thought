@@ -19,7 +19,13 @@ $("#submitButton").on("click", function (event) {
   var appKey = "eb86cdb3f13f6d7cd006d3e874c6754c";
   var appId = "faf106fd";
   //put the ingredients into the url 
-  var queryUrl = "https://api.edamam.com/search?q=" + ingredient + "&app_id=" + appId + "&app_key=" + appKey + "&from=0&to=6";
+  var queryUrl = "https://api.edamam.com/search?q=" + ingredient + "&app_id=" + appId + "&app_key=" + appKey + "&from=0&to=4";
+  if (diet !== "none") {
+    queryUrl += filter1 + diet
+  }
+  if (health !== "none") {
+    queryUrl += filter2 + health
+  }
 
   //ajax call
   console.log(queryUrl);
