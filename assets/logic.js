@@ -22,6 +22,7 @@ console.log(queryUrl);
     dataResponse = []
     //for each item in the response
     for (var i = 0; i < response.hits.length; i++) {
+      console.log(response.hits[i])
       //grab the name of the recipe and save it into the "label" variable
       var label = response.hits[i].recipe.label;
       // grab the url to the recipe and save it as a variable with the text of "click here to view". opens in new tab
@@ -34,6 +35,7 @@ console.log(queryUrl);
       var newDiv = $("<div class=col-lg-4 style=display:inline-block id=recipe></div>");
 
     //   API #2 / List button
+<<<<<<< HEAD
       var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal('+i+')" id=listButton">+</button>')
       
 
@@ -45,6 +47,10 @@ console.log(queryUrl);
         
         dataResponse.push(recipe)
 
+=======
+      var newButton = $("<button id=listButton>+</button>")
+   
+>>>>>>> various modifications / ignore most
       // the label, image, url, and new button put in this new div
       newDiv.text(label)
       newDiv.append(image, url, newButton)
@@ -63,6 +69,7 @@ console.log(queryUrl);
 
       //but the new div into the results box on the page
       $("#box").append(newDiv)
+<<<<<<< HEAD
       
     }   
     console.log(dataResponse)  
@@ -100,3 +107,20 @@ console.log(queryUrl);
 
 
       }
+=======
+    }
+    $("#listButton").on("click", function(event){
+      $('#myModal').on('shown.bs.modal', function () {
+        // $('#myInput').trigger('focus')
+        console.log("button clicked")
+      })
+      
+      
+      
+     
+        
+      }
+    )     
+  });  
+});
+>>>>>>> various modifications / ignore most

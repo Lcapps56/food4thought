@@ -28,27 +28,7 @@
           </div>
         </div>
       </div>
-      <!-- Three categories linking down to category overview lower down the page -->
-      <div class="row" id="categories">
-        <div class="col-lg-4" id="americanMain" style="text-align:center">
-          <p>AMERICAN</p>
-          <i
-            style="width:300px;height:300px;display:inline-block;background-color:gray"
-          ></i>
-        </div>
-        <div class="col-lg-4" id="italianMain" style="text-align:center">
-          <p>ITALIAN</p>
-          <i
-            style="width:300px;height:300px;display:inline-block;background-color:gray"
-          ></i>
-        </div>
-        <div class="col-lg-4" id="asianMain" style="text-align:center">
-          <p>ASIAN</p>
-          <i
-            style="width:300px;height:300px;display:inline-block;background-color:gray"
-          ></i>
-        </div>
-      </div>
+​
       <br />
       <h4 style="text-align: center">What's In Your Fridge?</h4>
       <div class="container" id="inputForm" style="align-content: center">
@@ -63,12 +43,46 @@
               rows="6"
             ></textarea>
           </div>
+  
+<!-- Dropboxes for Search Query Modifications (Goes directly under </textarea></div>-->
+  <div class="row">
+    <div class="col-lg-3" style="position:absolute;right:57px">
+      <header>Diet Options:</header>
+      <select id="dietInput" style="width:150px">
+        <option value="none"></option>
+        <option value="balanced">balanced</option>
+        <option value="high-protein">high-protein</option>
+        <option value="low-fat">low-fat</option>
+        <option value="low-carb">low-carb</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-3" style="position:absolute;right:57px">
+      <header>Health Options:</header>
+      <select id="healthInput" style="width:150px">
+        <option value="none"></option>
+        <option value="sugar-conscious">sugar-conscious</option>
+        <option value="peanut-free">peanut-free</option>
+        <option value="tree-nut-free">tree-nut-free</option>
+        <option value="alcohol-free">alcohol-free</option>        
+        <option value="vegan">vegan</option>
+        <option value="vegetarian">vegetarian</option>
+      </select>
+    </div>
+  </div>
+  <br>
+      <br>
           <div class="input-group-append">
-              <button class="btn btn-outline-secondary" style=display:block;margin-left:auto;margin-right:15px type="button" id="submitButton">Submit</button>
+              <button class="btn btn-outline-secondary" style=display:block;margin-left:auto;margin-right:15px;margin-top:13px type="button" id="submitButton">Submit</button>
         </div>
         </form>
       </div>
       <br>
+<<<<<<< HEAD
       <div class="modal" id="nutritionModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -101,8 +115,42 @@
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <script type="text/javascript"></script>
       
+=======
+
+      <!-- Display Recipes from JS -->
+      <div style="text-align:center;margin:auto" class="row" id="box"></div>
+      <div class="row" id="categories">
+        <div class="col-lg-4" id="americanMain" style="text-align:center">
+          <p>AMERICAN</p>
+          <i
+            style="width:300px;height:300px;display:inline-block;background-color:gray"
+          ></i>
+        </div>
+        <div class="col-lg-4" id="italianMain" style="text-align:center">
+          <p>ITALIAN</p>
+          <i
+            style="width:300px;height:300px;display:inline-block;background-color:gray"
+          ></i>
+        </div>
+        <div class="col-lg-4" id="asianMain" style="text-align:center">
+          <p>ASIAN</p>
+          <i
+            style="width:300px;height:300px;display:inline-block;background-color:gray"
+          ></i>
+        </div>
+      </bdiv>
+      <!-- Three categories linking down to category overview lower down the page -->      
+>>>>>>> various modifications / ignore most
   </div>
     <script src="assets/logic.js"></script>
     <script src="tilt.jquery.js"></script>
   </body>
+​
+    <footer class="page-footer font-small blue">
+​
+      <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+      </div>
+​
+    </footer>
 </html>
