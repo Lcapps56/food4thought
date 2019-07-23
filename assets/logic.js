@@ -90,12 +90,9 @@ $("#submitButton").on("click", function (event) {
   });
 });
 
-
-
+//the function to create the piechart on the fly when the button is clicked. creates the piechart with the correct data 
+//from an array created when the submit button is clicked
 function showModal(position) {
-
-
-
   google.charts.load('current', { 'packages': ['corechart'] });
   google.charts.setOnLoadCallback(drawChart);
   var currentData = dataResponse[position]
@@ -103,7 +100,7 @@ function showModal(position) {
 
     var data = google.visualization.arrayToDataTable([
       ['Task', 'Hours per Day'],
-      // ['Work',     response.hit[i].whatever],
+      // pulls the corresponding data from the array to put in the piechart for whatever recipe was clicked
       ['Fat', currentData.Fat],
       ['Carbs', currentData.Carbs],
       ['protein', currentData.Protein],
@@ -112,12 +109,8 @@ function showModal(position) {
     var options = {
       title: 'My Daily Activities'
     };
-
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
     chart.draw(data, options);
   }
   $('#nutritionModal').modal('show')
-
-
 }
