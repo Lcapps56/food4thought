@@ -7,7 +7,7 @@ $("#submitButton").on("click", function (event) {
   //  var diet = "none";
   var diet = $("#dietInput").val();
   // dropdown menu or input with 6 options only
-  
+
   //  var health = "none";
   var health = $("#healthInput").val();
   // dropdown menu or input field with 4 options only
@@ -56,13 +56,11 @@ $("#submitButton").on("click", function (event) {
       //   API #2 / List button
       var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id=listButton">+</button>')
 
-
       var recipe = {
         Fat: response.hits[i].recipe.digest[0].total,
         Carbs: response.hits[i].recipe.digest[1].total,
         Protein: response.hits[i].recipe.digest[2].total
       }
-
       dataResponse.push(recipe)
 
       // the label, image, url, and new button put in this new div
@@ -83,26 +81,22 @@ $("#submitButton").on("click", function (event) {
 
       //but the new div into the results box on the page
       $("#box").append(newDiv)
-
     }
     console.log(dataResponse)
   });
 });
 
-
-
+//function to create the chart for each recipe when the button is clicked
+//function grabs the correct info from the dataResponse array based on what i it is
 function showModal(position) {
-
-
 
   google.charts.load('current', { 'packages': ['corechart'] });
   google.charts.setOnLoadCallback(drawChart);
   var currentData = dataResponse[position]
   function drawChart() {
-
     var data = google.visualization.arrayToDataTable([
       ['Task', 'Hours per Day'],
-      // ['Work',     response.hit[i].whatever],
+      // grabs the corresonding data from the 
       ['Fat', currentData.Fat],
       ['Carbs', currentData.Carbs],
       ['protein', currentData.Protein],
@@ -113,10 +107,7 @@ function showModal(position) {
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
     chart.draw(data, options);
   }
   $('#nutritionModal').modal('show')
-
-
 }
