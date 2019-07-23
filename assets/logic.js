@@ -4,20 +4,23 @@ $("#submitButton").on("click", function (event) {
   event.preventDefault();
   //gather what was put in the textbox and save into the ingredients variable
   var ingredient = $("#ingredientsInput").val();
-  //  var diet = "none";
-  var diet = $("#dietInput").val();
-  // dropdown menu or input with 6 options only
   
-  //  var health = "none";
+  var diet = $("#dietInput").val();
+  // dropdown menu with 4 diet options or none 
+  
+  
   var health = $("#healthInput").val();
-  // dropdown menu or input field with 4 options only
+  // dropdown menu with 6 health options or none 
   var filter1 = "&diet=";
+  // convenience variable to save queryUrl parameter
   var filter2 = "&health=";
+  // convenience variable to save queryUrl parameter
 
   //api info
   var appKey = "eb86cdb3f13f6d7cd006d3e874c6754c";
   var appId = "faf106fd";
-  //put the ingredients into the url 
+  // put the ingredients into the queryUrl 
+  // q or ingredient is required but diet and health filters are optional
   var queryUrl = "https://api.edamam.com/search?q=" + ingredient + "&app_id=" + appId + "&app_key=" + appKey + "&from=0&to=4";
   if (diet !== "none") {
     queryUrl += filter1 + diet
@@ -45,9 +48,7 @@ $("#submitButton").on("click", function (event) {
       url.text("Click Here to View")
       //grab the image and save it into a variable named "image"
       var image = $("<img style='width:100%' src=" + response.hits[i].recipe.image + ">");
-      var totalFat = " Total Fat" + ": " + Math.round(response.hits[i].recipe.totalNutrients.FAT.quantity) + " grams ";
-      var totalCarb = "Total Carb" + ": " + Math.round(response.hits[i].recipe.totalNutrients.CHOCDF.quantity) + " grams ";
-      var totalProtein = "Total Protein" + ": " + Math.round(response.hits[i].recipe.totalNutrients.PROCNT.quantity) + " grams";
+      
 
 
       //create a new div for each response with an id of recipe. each recipe with its info will be in its own div
@@ -56,7 +57,7 @@ $("#submitButton").on("click", function (event) {
       //   API #2 / List button
       var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id=listButton">+</button>')
 
-
+      // creates the info for each field in the pie chart for each result
       var recipe = {
         Fat: response.hits[i].recipe.digest[0].total,
         Carbs: response.hits[i].recipe.digest[1].total,
