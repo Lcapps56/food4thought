@@ -19,10 +19,10 @@ $("#submitButton").on("click", function (event) {
   var appId = "faf106fd";
   //put the ingredients into the url 
   var queryUrl = "https://api.edamam.com/search?q=" + ingredient + "&app_id=" + appId + "&app_key=" + appKey + "&from=0&to=4";
-  if (diet !== "") {
+  if (diet !== "none") {
     queryUrl += filter1 + diet
   }
-  if (health !== "") {
+  if (health !== "none") {
     queryUrl += filter2 + health
   }
 
