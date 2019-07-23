@@ -47,15 +47,15 @@ $("#submitButton").on("click", function (event) {
       var url = $("<a target='_blank' href=" + response.hits[i].recipe.url + "></a>");
       url.text("Click Here to View")
       //grab the image and save it into a variable named "image"
-      var image = $("<img style='width:100%' src=" + response.hits[i].recipe.image + ">");
+      var image = $("<img class='img-fluid' style=width:100%;height:auto' src=" + response.hits[i].recipe.image + ">");
       
 
 
       //create a new div for each response with an id of recipe. each recipe with its info will be in its own div
-      var newDiv = $("<div class=col-lg-4 style=display:inline-block id=recipe></div>");
+      var newDiv = $("<div class=col-md-4 style=margin:auto;max-width:380px;padding:0px,15px;overflow:auto id=recipe></div>");
 
       //   API #2 / List button
-      var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id=listButton">+</button>')
+      var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id="listButton" style="padding:2px"><h3 style="margin:0">📊</h3></button>')
 
       // creates the info for each field in the pie chart for each result
       var recipe = {
@@ -70,11 +70,11 @@ $("#submitButton").on("click", function (event) {
       newDiv.text(label)
       newDiv.append(image, url, newButton)
       newDiv.css({
-        "padding": "20px",
+        "padding": "10px",
+        // "max-width": "300px",
         "border": "solid black 1px",
         "background": "#f7f7f7",
         "text-align": "center",
-        "box-shadow": "10px 10px 5px grey",
       })
       newButton.css({
         "position": "absolute",
