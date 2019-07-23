@@ -99,7 +99,7 @@ function showModal(position) {
   function drawChart() {
 
     var data = google.visualization.arrayToDataTable([
-      ['Task', 'Hours per Day'],
+      ['Macronutrient', 'Amount in grams'],
       // pulls the corresponding data from the array to put in the piechart for whatever recipe was clicked
       ['Fat', currentData.Fat],
       ['Carbs', currentData.Carbs],
@@ -107,7 +107,7 @@ function showModal(position) {
     ]);
     console.log(data)
     var options = {
-      title: 'My Daily Activities'
+      title: 'Macronutrient Breakdown'
     };
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
