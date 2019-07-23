@@ -7,11 +7,10 @@ $("#submitButton").on("click", function (event) {
   //  var diet = "none";
   var diet = $("#dietInput").val();
   // dropdown menu or input with 6 options only
-  diet = "balanced"
+  
   //  var health = "none";
   var health = $("#healthInput").val();
   // dropdown menu or input field with 4 options only
-  health = "alcohol-free"
   var filter1 = "&diet=";
   var filter2 = "&health=";
 
@@ -20,10 +19,10 @@ $("#submitButton").on("click", function (event) {
   var appId = "faf106fd";
   //put the ingredients into the url 
   var queryUrl = "https://api.edamam.com/search?q=" + ingredient + "&app_id=" + appId + "&app_key=" + appKey + "&from=0&to=4";
-  if (diet !== "none") {
+  if (diet !== "") {
     queryUrl += filter1 + diet
   }
-  if (health !== "none") {
+  if (health !== "") {
     queryUrl += filter2 + health
   }
 
