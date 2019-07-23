@@ -63,12 +63,47 @@
               rows="6"
             ></textarea>
           </div>
+          <!-- Diet Options-->
+  <div class="row">
+    <div class="col-lg-3" style="position:absolute;right:57px">
+      <header>Diet Options:</header>
+      <select id="dietInput" style="width:150px">
+        <option value="none"></option>
+        <option value="balanced">balanced</option>
+        <option value="high-protein">high-protein</option>
+        <option value="low-fat">low-fat</option>
+        <option value="low-carb">low-carb</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <br>
+<!-- ​Health options -->
+  <div class="row">
+    <div class="col-lg-3" style="position:absolute;right:57px">
+      <header>Health Options:</header>
+      <select id="healthInput" style="width:150px">
+        <option value="none"></option>
+        <option value="sugar-conscious">sugar-conscious</option>
+        <option value="peanut-free">peanut-free</option>
+        <option value="tree-nut-free">tree-nut-free</option>
+        <option value="alcohol-free">alcohol-free</option>        
+        <option value="vegan">vegan</option>
+        <option value="vegetarian">vegetarian</option>
+      </select>
+    </div>
+  </div>
+  <br>
+      <br>
+      <!-- Submit button -->
           <div class="input-group-append">
-              <button class="btn btn-outline-secondary" style=display:block;margin-left:auto;margin-right:15px type="button" id="submitButton">Submit</button>
+              <button class="btn btn-outline-secondary" style=display:block;margin-left:auto;margin-right:15px;margin-top:13px type="button" id="submitButton">Submit</button>
         </div>
         </form>
       </div>
       <br>
+​
+      <!-- Display Recipes from JS -->
       <div class="modal" id="nutritionModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
