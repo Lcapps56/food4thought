@@ -17,6 +17,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+          <!-- Jumbotron / Main Display -->
           <div class="jumbotron">
             <h1 class="display-4" style="text-align:center">Food 4 Thought</h1>
             <p class="lead">
@@ -28,29 +29,7 @@
           </div>
         </div>
       </div>
-      <!-- Three categories linking down to category overview lower down the page -->
-      <div class="row" id="categories">
-        <div class="col-lg-4" id="americanMain" style="text-align:center">
-          <p>AMERICAN</p>
-          <i
-            style="width:300px;height:300px;display:inline-block;background-color:gray"
-          ></i>
-        </div>
-        <div class="col-lg-4" id="italianMain" style="text-align:center">
-          <p>ITALIAN</p>
-          <i
-            style="width:300px;height:300px;display:inline-block;background-color:gray"
-          ></i>
-        </div>
-        <div class="col-lg-4" id="asianMain" style="text-align:center">
-          <p>ASIAN</p>
-          <i
-            style="width:300px;height:300px;display:inline-block;background-color:gray"
-          ></i>
-        </div>
-      </div>
-      <br />
-      <h4 style="text-align: center">What's In Your Fridge?</h4>
+      <!-- Input Area -->
       <div class="container" id="inputForm" style="align-content: center">
         <form>
           <div class="form-group col-lg-12" style="display: inline-block">
@@ -64,79 +43,111 @@
             ></textarea>
           </div>
           <!-- Diet Options-->
-  <div class="row">
-    <div class="col-lg-3" style="position:absolute;right:57px">
-      <header>Diet Options:</header>
-      <select id="dietInput" style="width:150px">
-        <option value="none"></option>
-        <option value="balanced">balanced</option>
-        <option value="high-protein">high-protein</option>
-        <option value="low-fat">low-fat</option>
-        <option value="low-carb">low-carb</option>
-      </select>
-    </div>
-  </div>
-  <br>
-  <br>
-<!-- ​Health options -->
-  <div class="row">
-    <div class="col-lg-3" style="position:absolute;right:57px">
-      <header>Health Options:</header>
-      <select id="healthInput" style="width:150px">
-        <option value="none"></option>
-        <option value="sugar-conscious">sugar-conscious</option>
-        <option value="peanut-free">peanut-free</option>
-        <option value="tree-nut-free">tree-nut-free</option>
-        <option value="alcohol-free">alcohol-free</option>        
-        <option value="vegan">vegan</option>
-        <option value="vegetarian">vegetarian</option>
-      </select>
-    </div>
-  </div>
-  <br>
-      <br>
-      <!-- Submit button -->
+          <div class="row">
+            <div class="col-lg-3" style="position:absolute;right:57px">
+              <header>Diet Options:</header>
+              <select id="dietInput" style="width:150px">
+                <option value="none"></option>
+                <option value="balanced">balanced</option>
+                <option value="high-protein">high-protein</option>
+                <option value="low-fat">low-fat</option>
+                <option value="low-carb">low-carb</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <br />
+          <!-- ​Health options -->
+          <div class="row">
+            <div class="col-lg-3" style="position:absolute;right:57px">
+              <header>Health Options:</header>
+              <select id="healthInput" style="width:150px">
+                <option value="none"></option>
+                <option value="sugar-conscious">sugar-conscious</option>
+                <option value="peanut-free">peanut-free</option>
+                <option value="tree-nut-free">tree-nut-free</option>
+                <option value="alcohol-free">alcohol-free</option>
+                <option value="vegan">vegan</option>
+                <option value="vegetarian">vegetarian</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <br />
+          <!-- Submit button -->
           <div class="input-group-append">
-              <button class="btn btn-outline-secondary" style=display:block;margin-left:auto;margin-right:15px;margin-top:13px type="button" id="submitButton">Submit</button>
-        </div>
+            <button
+              class="btn btn-outline-secondary"
+              style="display:block;margin-left:auto;margin-right:15px;margin-top:13px"
+              type="button"
+              id="submitButton"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
-      <br>
-​
-      <!-- Display Recipes from JS -->
+      <br />
+      ​
+      <!-- Pie Chart Modal -->
       <div class="modal" id="nutritionModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">nutrition facts</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                <div id="piechart" style="width: 900px; height: 500px;"></div>
+              <div id="piechart" style="width: 900px; height: 500px;"></div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
       </div>
       <!-- Display Recipes from JS -->
       <div style="text-align:center;margin:auto" class="row" id="box"></div>
-      <script
+      <!-- Main container closing tag -->
+    </div>
+
+    <!-- Jquery -->
+    <script
       src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"
     ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script type="text/javascript"></script>
-      
-  </div>
+    <!-- Popper -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Link to Javascript -->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript"></script>
     <script src="assets/logic.js"></script>
     <script src="tilt.jquery.js"></script>
   </body>
