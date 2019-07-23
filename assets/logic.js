@@ -1,14 +1,34 @@
 //when the submit button gets clicked
 var dataResponse = []
+$(document).ready(() => {
+  favorites = () => {
+
+    var currentFavs = localStorage.favorites
+    $('#favbox').empty()
+    var theInfo = ''
+
+    if (currentFavs && currentFavs !== "[]") {
+      currentFavs = JSON.parse(currentFavs)
+      console.log(currentFavs)
+
+      for (let i = 0; i < currentFavs.length; i++) {
+        theInfo += '<div class="col-sm-3"><img src=' + currentFavs[i].image + ' style="width:100px" alt=""><br><a href=' + currentFavs[i].url + '>' + currentFavs[i].name + '</a> <button type="button" class="btn space btn-danger" data-arrayLocation=' + i + '>X</button></div>'
+      }
+      $('#favbox').append('<div class="container"><div class="row">' + theInfo)
+    } else { $('#favbox').append('<small>You currently have no favorites...You should fix that</small>') }
+
+  }
+  favorites()
+})
 $("#submitButton").on("click", function (event) {
   event.preventDefault();
   //gather what was put in the textbox and save into the ingredients variable
   var ingredient = $("#ingredientsInput").val();
-  
+
   var diet = $("#dietInput").val();
   // dropdown menu with 4 diet options or none 
-  
-  
+
+
   var health = $("#healthInput").val();
   // dropdown menu with 6 health options or none 
   var filter1 = "&diet=";
@@ -48,14 +68,17 @@ $("#submitButton").on("click", function (event) {
       url.text("Click Here to View")
       //grab the image and save it into a variable named "image"
       var image = $("<img style='width:100%' src=" + response.hits[i].recipe.image + ">");
-      
+
 
 
       //create a new div for each response with an id of recipe. each recipe with its info will be in its own div
-      var newDiv = $("<div class=col-lg-4 style=display:inline-block id=recipe></div>");
+      var newDiv = $("<div class=col-md-4 style=margin:auto;max-width:380px;padding:0px,15px;overflow:auto id=recipe></div>");
 
       //   API #2 / List button
-      var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id="listButton" style="padding:2px"><h3 style="margin:0">📊</h3></button>')
+      var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id="listButton" style="padding:2px"><h5 style="margin:0">📊</h5></button>')
+      var holder = '<button type="button" class="btn btn-primary"  data-url=' + response.hits[i].recipe.url + ' data-title=' + response.hits[i].recipe.label + ' id="likebutton" style="padding:2px"><h5 style="margin:0">👍</h5></button>'
+      var saveButton = $('<button type="button" class="btn btn-primary"  data-url=' + response.hits[i].recipe.url + ' data-title="' + response.hits[i].recipe.label + '" data-image =' + response.hits[i].recipe.image + ' id="likebutton"style="padding:2px"><h5 style="margin:0">👍</h5></button>')
+      console.log(holder)
 
       // creates the info for each field in the pie chart for each result
       var recipe = {
@@ -68,18 +91,23 @@ $("#submitButton").on("click", function (event) {
 
       // the label, image, url, and new button put in this new div
       newDiv.text(label)
-      newDiv.append(image, url, newButton)
+      newDiv.append(image, url, newButton, saveButton)
       newDiv.css({
-        "padding": "20px",
+        "padding": "10px",
+        // "max-width": "300px",
         "border": "solid black 1px",
         "background": "#f7f7f7",
         "text-align": "center",
-        "box-shadow": "10px 10px 5px grey",
       })
       newButton.css({
         "position": "absolute",
         "bottom": "0px",
         "right": "0px"
+      })
+      saveButton.css({
+        "position": "absolute",
+        "bottom": "0px",
+        "left": "0px"
       })
 
       //but the new div into the results box on the page
@@ -114,3 +142,36 @@ function showModal(position) {
   }
   $('#nutritionModal').modal('show')
 }
+
+$(document).on('click', '#likebutton', function () {
+  var favoritez = localStorage.favorites;
+  if (favoritez) {
+    favoritez = JSON.parse(favoritez)
+  } else {
+    favoritez = []
+  }
+  // var fav = $("#favorite").val().trim()
+  var recipe1 = {
+    image: $(this).attr('data-image'),
+    url: $(this).attr('data-url'),
+    name: $(this).attr('data-title')
+  }
+  console.log(recipe1)
+  favoritez.push(recipe1)
+
+  localStorage.setItem("favorites", JSON.stringify(favoritez));
+
+  // var urlText = localStorage.getItem("url")
+
+  // $("#favbox").html(localStorage.getItem ("urlText"))
+  favorites()
+  // console.log(urlText)
+  console.log(favoritez)
+})
+$(document).on('click', '.space', function () {
+  var favoritez = JSON.parse(localStorage.favorites)
+  var place = $(this).attr('data-arrayLocation')
+  favoritez.splice(place, 1)
+  localStorage.setItem("favorites", JSON.stringify(favoritez));
+  favorites()
+})
