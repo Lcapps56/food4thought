@@ -79,6 +79,7 @@ $("#submitButton").on("click", function (event) {
       var holder = '<button type="button" class="btn btn-primary"  data-url=' + response.hits[i].recipe.url + ' data-title=' + response.hits[i].recipe.label + ' id="likebutton" style="padding:2px"><h5 style="margin:0">👍</h5></button>'
       var saveButton = $('<button type="button" class="btn btn-primary"  data-url=' + response.hits[i].recipe.url + ' data-title="' + response.hits[i].recipe.label + '" data-image =' + response.hits[i].recipe.image + ' id="likebutton"style="padding:2px"><h5 style="margin:0">👍</h5></button>')
       console.log(holder)
+
       // creates the info for each field in the pie chart for each result
       var recipe = {
         Fat: response.hits[i].recipe.digest[0].total,
@@ -141,8 +142,6 @@ function showModal(position) {
   }
   $('#nutritionModal').modal('show')
 }
-
-
 
 $(document).on('click', '#likebutton', function () {
   var favoritez = localStorage.favorites;
