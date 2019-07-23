@@ -55,7 +55,7 @@ $("#submitButton").on("click", function (event) {
       var newDiv = $("<div class=col-lg-4 style=display:inline-block id=recipe></div>");
 
       //   API #2 / List button
-      var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id=listButton">+</button>')
+      var newButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" onClick="showModal(' + i + ')" id="listButton" style="padding:2px"><h3 style="margin:0">📊</h3></button>')
 
       // creates the info for each field in the pie chart for each result
       var recipe = {
