@@ -21,7 +21,7 @@ $("#submitButton").on("click", function (event) {
   var appId = "faf106fd";
   // put the ingredients into the queryUrl 
   // q or ingredient is required but diet and health filters are optional
-  var queryUrl = "https://api.edamam.com/search?q=" + ingredient + "&app_id=" + appId + "&app_key=" + appKey + "&from=0&to=4";
+  var queryUrl = "https://api.edamam.com/search?q=" + ingredient + "&app_id=" + appId + "&app_key=" + appKey + "&from=0&to=6";
   if (diet !== "none") {
     queryUrl += filter1 + diet
   }
