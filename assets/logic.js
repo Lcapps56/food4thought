@@ -69,8 +69,6 @@ $("#submitButton").on("click", function (event) {
       //grab the image and save it into a variable named "image"
       var image = $("<img style='width:100%' src=" + response.hits[i].recipe.image + ">");
 
-
-
       //create a new div for each response with an id of recipe. each recipe with its info will be in its own div
       var newDiv = $("<div class=col-md-4 style=margin:auto;max-width:380px;padding:0px,15px;overflow:auto id=recipe></div>");
 
@@ -109,10 +107,8 @@ $("#submitButton").on("click", function (event) {
         "bottom": "0px",
         "left": "0px"
       })
-
       //but the new div into the results box on the page
       $("#box").append(newDiv)
-
     }
     console.log(dataResponse)
   });
@@ -125,7 +121,6 @@ function showModal(position) {
   google.charts.setOnLoadCallback(drawChart);
   var currentData = dataResponse[position]
   function drawChart() {
-
     var data = google.visualization.arrayToDataTable([
       ['Macronutrient', 'Amount in grams'],
       // pulls the corresponding data from the array to put in the piechart for whatever recipe was clicked
@@ -161,9 +156,6 @@ $(document).on('click', '#likebutton', function () {
 
   localStorage.setItem("favorites", JSON.stringify(favoritez));
 
-  // var urlText = localStorage.getItem("url")
-
-  // $("#favbox").html(localStorage.getItem ("urlText"))
   favorites()
   // console.log(urlText)
   console.log(favoritez)
