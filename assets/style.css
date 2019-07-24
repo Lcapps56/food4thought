@@ -3,8 +3,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.modal {
+    background-image: url("http://www.patsiga.net/images/backgrounds/produce2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 div {
     background-color: white;
+    margin-top: 10px;
 }
 #submitButtonCss {
     margin: 5px 0;
