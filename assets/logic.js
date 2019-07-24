@@ -15,7 +15,7 @@ $(document).ready(() => {
         theInfo += '<div class="col-sm-3"><img src=' + currentFavs[i].image + ' style="width:100px" alt=""><br><a href=' + currentFavs[i].url + '>' + currentFavs[i].name + '</a> <button type="button" class="btn space btn-danger" data-arrayLocation=' + i + '>X</button></div>'
       }
       $('#favbox').append('<div class="container"><div class="row">' + theInfo)
-    } else { $('#favbox').append('<small>You currently have no favorites...You should fix that</small>') }
+    } else { $('#favbox').append('<small>You currently have no favorites.</small>') }
 
   }
   favorites()
