@@ -24,3 +24,5 @@ __instructions__
 4. click on view recipe to see the instructions for the recipe
 5. click the thumbs up to add the recipe to your favorites
 6. click the graph icon to view the macro info in a pie chart
+
+![alt text](./images/Annotation%2019-10-08%20184751.png)
